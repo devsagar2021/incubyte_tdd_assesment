@@ -17,4 +17,8 @@ describe('add() should calculate numbers', () => {
   it('Should return 10 fro "5,2,10,1,2"', () => {
     expect(add("5,2,10,1,2")).toEqual(20)
   })
+
+  it('Should return 6 for "1\n2,3"', () => {
+    expect(add("1\n2,3")).toEqual(6)
+  })
 })
