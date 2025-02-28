@@ -41,4 +41,12 @@ describe('add() should calculate numbers', () => {
   it('Should return 6 for "//[***]\n1***2***3"', () => {
     expect(add("//[***]\n1***2***3")).toEqual(6)
   })
+
+  it('Should return 6 for "//[*][%]\n1*2%3"', () => {
+    expect(add("//[*][%]\n1*2%3")).toEqual(6)
+  })
+
+  it('Should return 6 for "//[**][%%]\n1**2%%3"', () => {
+    expect(add("//[**][%%]\n1**2%%3")).toEqual(6)
+  })
 })
