@@ -20,6 +20,9 @@ const add = (numbers: string): number => {
       negativeNumbers.push(num);
       return acc;
     }
+    if (numInt > 1000) {
+      return acc;
+    }
     return acc + parseInt(num, 10);
   }, 0);
 
