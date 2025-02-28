@@ -1,8 +1,8 @@
-const add = (numbers: string): number | null => {
+const add = (numbers: string): number => {
   if (numbers === "") {
     return 0;
   }
-  return null
+  return parseInt(numbers);
 };
 
 export default add;
