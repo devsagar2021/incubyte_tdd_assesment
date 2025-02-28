@@ -29,4 +29,8 @@ describe('add() should calculate numbers', () => {
   it('Should return 5 for "//.\n1.2.2" with custom delimiter "."', () => {
     expect(add("//.\n1.2.2")).toEqual(5)
   })
+
+  it('Throw error for negative numbers', () => {
+    expect(() => add("1,-2,3,-6")).toThrowError("Negatives not allowed: -2,-6")
+  })
 })
