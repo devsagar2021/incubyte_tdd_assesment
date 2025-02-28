@@ -2,7 +2,7 @@
   "name": "incubyte_tdd_assessment",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "src/stringCalc.ts",
   "scripts": {
     "build": "rimraf ./dist && npx tsc src/stringCalc.ts --outDir dist",
     "start": "npm run build && node dist/stringCalc.js",
