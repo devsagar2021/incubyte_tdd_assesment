@@ -1,0 +1,19 @@
+{
+  "name": "incubyte_tdd_assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "rimraf ./dist && npx tsc src/stringCalc.ts --outDir dist",
+    "start": "npm run build && node dist/stringCalc.js",
+    "dev": "npx tsc src/stringCalc.ts --watch",
+    "test": "npx vitest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  }
+}
