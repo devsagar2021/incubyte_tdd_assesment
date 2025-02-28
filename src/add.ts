@@ -2,7 +2,9 @@ const add = (numbers: string): number => {
   if (numbers === "") {
     return 0;
   }
-  return parseInt(numbers);
+  const numberArr = numbers.split(",");
+  const sum = numberArr.reduce((acc, num) => acc + parseInt(num, 10), 0);
+  return sum;
 };
 
 export default add;
