@@ -33,4 +33,8 @@ describe('add() should calculate numbers', () => {
   it('Throw error for negative numbers', () => {
     expect(() => add("1,-2,3,-6")).toThrowError("Negatives not allowed: -2,-6")
   })
+
+  it('Should ignore numbers greater than 1000', () => {
+    expect(add("2,1001")).toEqual(2)
+  })
 })
