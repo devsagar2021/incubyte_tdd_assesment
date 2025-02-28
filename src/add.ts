@@ -7,7 +7,13 @@ const add = (numbers: string): number => {
   let numbersToSum = numbers;
 
   if (numbers.startsWith("//")) {
-    delimiter = numbers[2];
+    const firstChar = numbers[2];
+    if (firstChar === "[") {
+      const endOfDelimiter = numbers.indexOf("]");
+      delimiter = numbers.substring(3, endOfDelimiter);
+    } else { 
+      delimiter = firstChar;
+    }
     numbersToSum = numbers.substring(numbers.indexOf("\n") + 1);
   }
 
