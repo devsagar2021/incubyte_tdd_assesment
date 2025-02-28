@@ -37,4 +37,8 @@ describe('add() should calculate numbers', () => {
   it('Should ignore numbers greater than 1000', () => {
     expect(add("2,1001")).toEqual(2)
   })
+
+  it('Should return 6 for "//[***]\n1***2***3"', () => {
+    expect(add("//[***]\n1***2***3")).toEqual(6)
+  })
 })
