@@ -21,4 +21,12 @@ describe('add() should calculate numbers', () => {
   it('Should return 6 for "1\n2,3"', () => {
     expect(add("1\n2,3")).toEqual(6)
   })
+
+  it('Should return 3 for "//;\n1;2" with custom delimiter ";"', () => {
+    expect(add("//;\n1;2")).toEqual(3)
+  })
+
+  it('Should return 5 for "//.\n1.2.2" with custom delimiter "."', () => {
+    expect(add("//.\n1.2.2")).toEqual(5)
+  })
 })
