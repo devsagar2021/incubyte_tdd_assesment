@@ -6,20 +6,28 @@ const add = (numbers: string): number => {
   let delimiter: string | RegExp = /[,\n]/;
   let numbersToSum = numbers;
 
+  // Check if custom delimiter
   if (numbers.startsWith("//")) {
-    const firstChar = numbers[2];
-    if (firstChar === "[") {
-      const endOfDelimiter = numbers.indexOf("]");
-      delimiter = numbers.substring(3, endOfDelimiter);
+    const delimiterSubstring = numbers.substring(2, numbers.indexOf("\n"));
+    if (delimiterSubstring.startsWith("[")) {
+      let delimiters = delimiterSubstring.split("][");
+      delimiters = delimiters.map((d) => {
+        const cleanDelimiter = d.replace("[", "").replace("]", "");
+        return cleanDelimiter.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+      });
+      delimiter = new RegExp(delimiters.join("|"), "g");
     } else { 
-      delimiter = firstChar;
+      delimiter = delimiterSubstring;
     }
     numbersToSum = numbers.substring(numbers.indexOf("\n") + 1);
   }
 
+  // Split numbers
   const numberArr = numbersToSum.split(delimiter);
+  
   const negativeNumbers: string[] = [];
 
+  // Sum numbers
   const sum = numberArr.reduce((acc, num) => {
     const numInt = parseInt(num, 10);
     if (numInt < 0) {
@@ -32,6 +40,7 @@ const add = (numbers: string): number => {
     return acc + parseInt(num, 10);
   }, 0);
 
+  // Throw error if there are negative numbers
   if (negativeNumbers.length > 0) {
     throw new Error(`Negatives not allowed: ${negativeNumbers.join(",")}`);
   }
