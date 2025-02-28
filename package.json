@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/stringCalc.ts",
   "scripts": {
-    "build": "rimraf ./dist && npx tsc src/stringCalc.ts --outDir dist",
+    "build": "rimraf ./dist && npx tsc",
     "start": "npm run build && node dist/stringCalc.js",
-    "dev": "npx tsc src/stringCalc.ts --watch",
+    "dev": "npx tsc --watch",
     "test": "npx vitest"
   },
   "author": "",
